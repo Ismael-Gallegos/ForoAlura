@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.alura</groupId>
-	<artifactId>foro-inicial</artifactId>
+	<artifactId>foro-alura</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>foro-inicial</name>
+	<name>foro-alura</name>
 	<description>API rest para Foro Alura</description>
 	<properties>
 		<java.version>17</java.version>
