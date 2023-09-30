@@ -1,4 +1,6 @@
-package com.alura.modelo;
+package com.alura.foro.modelo;
+
+import com.alura.foro.modelo.usuario.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
