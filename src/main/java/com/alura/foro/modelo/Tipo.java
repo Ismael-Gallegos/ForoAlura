@@ -1,7 +1,9 @@
 package com.alura.foro.modelo;
 
 public enum Tipo {
-    ADMINISTRADOR,
-    MODERADOR,
-    USUARIO
+
+    ROLE_ADMIN,
+    ROLE_MOD,
+    ROLE_USER
+
 }

@@ -1,6 +1,7 @@
-package com.alura.foro.modelo.usuario;
+package com.alura.foro.modelo;
 
-import com.alura.foro.modelo.Tipo;
+import com.alura.foro.dto.usuario.DatosActualizarUsuario;
+import com.alura.foro.dto.usuario.DatosRegistroUsuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -20,15 +21,14 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Usuario implements UserDetails {
-
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String email;
 	private String contrasena;
-	@Enumerated
-	private Tipo tipo = Tipo.USUARIO;
+	@Enumerated(EnumType.STRING)
+	private Tipo tipo = Tipo.ROLE_USER;
 
 	public Usuario(DatosRegistroUsuario datos) {
 		this.nombre = datos.nombre();
@@ -36,6 +36,21 @@ public class Usuario implements UserDetails {
 		this.contrasena = datos.contrasena();
 		if (datos.tipo() != this.tipo) {
 			this.tipo = datos.tipo();
+		}
+	}
+
+	public void actualizarDatos(DatosActualizarUsuario datosActualizar) {
+		if (datosActualizar.nombre() != null) {
+			this.nombre = datosActualizar.nombre();
+		}
+		if (datosActualizar.email() != null) {
+			this.email = datosActualizar.email();
+		}
+		if (datosActualizar.contrasena() != null) {
+			this.contrasena = datosActualizar.contrasena();
+		}
+		if (datosActualizar.tipo() != datosActualizar.tipo()) {
+			this.tipo = datosActualizar.tipo();
 		}
 	}
 
